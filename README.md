@@ -20,7 +20,7 @@ var someAsyncFunction = function fnName(num, callback) {
 };
 
 var cacheAspect = function(method, params) {
-	console.log(this.name);
+	console.log(method.name);
 	var num = params[0];
 	if (cache[num]) {
 		var callback = params[params.length - 1];
@@ -38,7 +38,7 @@ var changeAspect = function(method, params) {
 };
 
 var formatAspect = function(method, params) {
-	console.log(this.name);
+	console.log(method.name);
 	var callback = params[params.length - 1];
 	var newCallback = function(error, result) {
 		callback(error, result + "s");
