@@ -1,9 +1,9 @@
-var aop = require("./../lib/aop");
+var aop = require('./../lib/aop');
 
 var cache = {};
 
 var someAsyncFunction = function fnName(num, callback) {
-	console.log("calculating");
+	console.log('calculating');
 	var result = num * 2;
 	callback(null, result);
 	cache[num] = result;
@@ -14,7 +14,7 @@ var cacheAspect = function(method, params) {
 	var num = params[0];
 	if (cache[num]) {
 		var callback = params[params.length - 1];
-		console.log("using cached value");
+		console.log('using cached value');
 		callback(null, cache[num]);
 	} else {
 		method.apply(this, params);
@@ -31,7 +31,7 @@ var formatAspect = function(method, params) {
 	console.log(method.name);
 	var callback = params[params.length - 1];
 	var newCallback = function(error, result) {
-		callback(error, result + "s");
+		callback(error, result + 's');
 	};
 	params[params.length - 1] = newCallback;
 	method.apply(this, params);
