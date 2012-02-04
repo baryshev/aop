@@ -1,6 +1,6 @@
 {
 	"name" : "aop",
-	"version" : "0.1.2",
+	"version" : "0.1.3",
 	"description" : "Simple AOP realization for async applications",
 	"keywords": ["aop"],
 	"author" : "Vadim M. Baryshev <vadimbaryshev@gmail.com>",
