@@ -12,7 +12,7 @@ var aop = require("aop");
 
 var cache = {};
 
-var someAsyncFunction = function fnName(num, callback) {
+var someAsyncFunction = function(num, callback) {
 	console.log("calculating");
 	var result = num * 2;
 	callback(null, result);
@@ -20,7 +20,6 @@ var someAsyncFunction = function fnName(num, callback) {
 };
 
 var cacheAspect = function(method, params) {
-	console.log(method.name);
 	var num = params[0];
 	if (cache[num]) {
 		var callback = params[params.length - 1];
@@ -32,13 +31,11 @@ var cacheAspect = function(method, params) {
 };
 
 var changeAspect = function(method, params) {
-	console.log(this.name);
 	params[0]++;
 	method.apply(this, params);
 };
 
 var formatAspect = function(method, params) {
-	console.log(method.name);
 	var callback = params[params.length - 1];
 	var newCallback = function(error, result) {
 		callback(error, result + "s");
