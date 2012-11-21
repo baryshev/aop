@@ -1,4 +1,3 @@
-[![build status](https://secure.travis-ci.org/baryshev/aop.png)](http://travis-ci.org/baryshev/aop)
 # About 
 Simple AOP realization for async applications.
 
